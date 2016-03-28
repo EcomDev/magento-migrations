@@ -1,0 +1,48 @@
+{
+    "name": "ecomdev/magento-migration",
+    "description": "Magento migrations module",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Ivan Chepurnyi",
+            "email": "ivan@ecomdev.org"
+        }
+    ],
+    "require": {
+       "php": ">= 5.4",
+       "magento/framework": "~100.0",
+        "magento/zendframework1": "1.12.16"
+    },
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "https://repo.magento.com/"
+      }
+    ],
+    "require-dev": {
+      "phpspec/phpspec": "^2.4",
+      "squizlabs/php_codesniffer": "*",
+      "phpmd/phpmd": "^2.3",
+      "satooshi/php-coveralls": "dev-master",
+      "ciaranmcnulty/phpspec-typehintedmethods": "^1.1",
+      "mikey179/vfsStream": "^1.6",
+      "henrikbjorn/phpspec-code-coverage": "^2.0",
+      "phpspec/nyan-formatters": "^1.0",
+      "ecomdev/phpspec-file-matcher": "^1.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+      "psr-4": {
+        "EcomDev\\MagentoMigrations\\": "src/"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "spec\\EcomDev\\MagentoMigrations\\": "spec/"
+      }
+    },
+    "config": {
+      "bin-dir": "bin/"
+    }
+}
