@@ -112,7 +112,7 @@ But you must always review both version file to make sure you don't do the same 
 
 ## Auto-generation
 
-It will be possible to create even empty version scripts in order to let perform operations that are in-directly related to schema changes.
+It will be possible to create even empty version scripts in order to let you perform operations that are in-directly related to schema changes.
 
 For instance you create custom version schema script for changing format of the data in particular table.
 
