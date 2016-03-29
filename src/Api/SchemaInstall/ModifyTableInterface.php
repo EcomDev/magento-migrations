@@ -4,19 +4,19 @@ namespace EcomDev\MagentoMigration\Api\SchemaInstall;
 
 use EcomDev\MagentoMigration\Api;
 
-interface CreateTableInterface
-    extends Api\SerializableInterface, // Should be possible to store to external file
-            Api\Sql\CreateTableInterface // Should be possible to execute as statement
+interface ModifyTableInterface
+    extends Api\SerializableInterface,
+        Api\Sql\ModifyTableInterface
 {
     /**
-     * Makes it possible to create SQL table modification based on changes in table
+     * Makes it possible to create SQL table modification based on changes in statement
      *
      * Returns false if no modification has been done
      *
-     * @param CreateTableInterface $createTable
+     * @param ModifyTableInterface $modifyTable
      * @return Api\SqlInterface|false
      */
-    public function calculateDifference(CreateTableInterface $createTable);
+    public function calculateDifference(ModifyTableInterface $modifyTable);
 
     /**
      * Rename column for feature reference

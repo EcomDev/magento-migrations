@@ -12,7 +12,7 @@ interface SchemaInstallInterface extends SerializableInterface
      *
      * @param string $tableName
      * @param null|string $schemaName
-     * @return Sql\CreateTableInterface
+     * @return SchemaInstall\CreateTableInterface
      */
     public function createTable($tableName, $schemaName = null);
 
@@ -38,7 +38,7 @@ interface SchemaInstallInterface extends SerializableInterface
     public function dropTable($tableName, $schemaName = null);
 
     /**
-     * Adds name history items
+     * Renames table internally
      *
      * So in case if you change name of your table,
      * it will be renamed instead of dropped and then created again
@@ -47,5 +47,5 @@ interface SchemaInstallInterface extends SerializableInterface
      * @param string $newName
      * @return $this
      */
-    public function nameHistory($oldName, $newName);
+    public function renameTable($oldName, $newName);
 }

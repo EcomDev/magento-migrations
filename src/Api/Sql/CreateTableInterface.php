@@ -8,13 +8,15 @@
 
 namespace EcomDev\MagentoMigration\Api\Sql;
 
-
+use EcomDev\MagentoMigration\Api;
 
 /**
  * Creates a create table action
  *
  */
-interface CreateTableInterface extends TableInterface
+interface CreateTableInterface
+    extends Api\TableInterface,
+        Api\SqlInterface
 {
     /**
      * Adds a column into create table schema action
@@ -26,7 +28,7 @@ interface CreateTableInterface extends TableInterface
      * @param null|string $comment
      * @return $this
      */
-    public function column($name, $type, $length = null, array $options = [], $comment = null);
+    public function addColumn($name, $type, $length = null, array $options = [], $comment = null);
 
     /**
      * Adds indx key into create table schema action
@@ -34,7 +36,7 @@ interface CreateTableInterface extends TableInterface
      * @param array|string $columns
      * @return $this
      */
-    public function index($columns);
+    public function addIndex($columns);
 
     /**
      * Adds index key
@@ -42,7 +44,7 @@ interface CreateTableInterface extends TableInterface
      * @param array|string $columns
      * @return $this
      */
-    public function uniqueKey($columns);
+    public function addUniqueKey($columns);
 
     /**
      * Adds a new foreign key
@@ -53,7 +55,7 @@ interface CreateTableInterface extends TableInterface
      * @param null|string $actionDelete
      * @return $this
      */
-    public function foreignKey($column, $foreignTable, $foreignColumn, $actionDelete = null);
+    public function addForeignKey($column, $foreignTable, $foreignColumn, $actionDelete = null);
 
     /**
      * Adds a new option for a table
@@ -62,5 +64,13 @@ interface CreateTableInterface extends TableInterface
      * @param string $value
      * @return $this
      */
-    public function option($name, $value);
+    public function setOption($name, $value);
+
+    /**
+     * Specifies comment creation
+     *
+     * @param string $comment
+     * @return string
+     */
+    public function setComment($comment);
 }

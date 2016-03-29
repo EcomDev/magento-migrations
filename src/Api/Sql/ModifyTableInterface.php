@@ -2,8 +2,7 @@
 
 namespace  EcomDev\MagentoMigration\Api\Sql;
 
-use EcomDev\MagentoMigration\Api\NameHistoryAwareInterface;
-use EcomDev\MagentoMigration\Api\SerializableInterface;
+use EcomDev\MagentoMigration\Api;
 
 
 /**
@@ -11,7 +10,9 @@ use EcomDev\MagentoMigration\Api\SerializableInterface;
  *
  * It should be used to perform all modifications on a table
  */
-interface ModifyTableInterface extends TableInterface
+interface ModifyTableInterface
+    extends Api\TableInterface,
+            Api\SqlInterface
 {
     /**
      * Adds a new column to existing table
@@ -101,4 +102,21 @@ interface ModifyTableInterface extends TableInterface
      * @return $this
      */
     public function addForeignKey($column, $foreignTable, $foreignColumn, $actionDelete = null);
+
+    /**
+     * Sets table option
+     *
+     * @param string $option
+     * @param string $value
+     * @return $this
+     */
+    public function setOption($option, $value);
+
+    /**
+     * Sets comment for a table
+     *
+     * @param string $comment
+     * @return $this
+     */
+    public function setComment($comment);
 }

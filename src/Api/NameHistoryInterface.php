@@ -1,10 +1,32 @@
 <?php
 
-namespace EcomDev\MagentoMigration\Api\SchemaAction;
+namespace EcomDev\MagentoMigration\Api;
 
-use EcomDev\MagentoMigration\Api\SerializableInterface;
-
+/**
+ * Name history container interface
+ *
+ *
+ */
 interface NameHistoryInterface extends SerializableInterface
 {
-    public function add($oldName, $newName);
+    /**
+     * Adds name history entry
+     *
+     * If namespace is specified it will use it as base
+     *
+     * @param string $oldName
+     * @param string $newName
+     * @param string|null $namespace
+     * @return string
+     */
+    public function add($oldName, $newName, $namespace = null);
+
+    /**
+     * Resolves name history changes in container
+     *
+     * @param string $name
+     * @param string|null $namespace
+     * @return string
+     */
+    public function resolve($name, $namespace = null);
 }

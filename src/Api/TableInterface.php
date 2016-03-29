@@ -1,6 +1,6 @@
 <?php
 
-namespace EcomDev\MagentoMigration\Api\Sql;
+namespace EcomDev\MagentoMigration\Api;
 
 interface TableInterface
 {
